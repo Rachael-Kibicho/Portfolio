@@ -1,400 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>PORTFOLIO2</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachael Kibicho - Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-body {
-  margin: 0;
-  background-color: black;
-  position: relative;
-  background-repeat: no-repeat;
-  background-size: cover;
+        /* Header */
+        header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #764ba2;
+        }
 
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+        }
+        #hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        #hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+        }
 
-}
+        /* Section styles */
+        section {
+            padding: 80px 20px;
+            background: rgba(255,255,255,0.95);
+            margin: 40px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #764ba2;
+        }
 
-/* Style the header */
-#header {
-  background-image: url('gradient6.png');
-  padding: 20px;
-  text-align: center;
-}
+        /* About */
+        #about p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
 
-/* Style the top navigation bar */
-.topnav {
-  overflow:hidden;
-  background-color: #172129;
-}
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .achievement-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        .achievement-card:hover {
+            transform: translateY(-10px);
+        }
+        .achievement-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
 
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f6efef;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  border-radius: 20px;
-}
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
 
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ace0f4;
-  color: rgb(13, 13, 13);
-  transition-duration: 0.5s;
-}
-.MYB3 {
-    background-color:rgb(44, 42, 42);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    font-family:"Lucida Sans";
-    font-size: 20px;
-    border-radius: 10px;
-    position:absolute;
-    left:0.5em;
-    bottom:-3em;
-    transition-duration: 0.4s;
+        /* Contact */
+        #contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        input, textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #764ba2;
+        }
 
-  }
-  .MYB3:hover{
-    background-color: rgb(0, 139, 58);
-  }
-  #on{
-    background-color:rgb(44, 42, 42);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    font-family:"Lucida Sans";
-    font-size: 20px;
-    border-radius: 10px;
-    position:absolute;
-    left:38em;
-    bottom:-3em;
-    transition-duration: 0.4s;
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+        }
 
-  }
-  #on:hover{
-    background-color: rgb(0, 139, 58);
-  }
+        /* Responsive */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5em; }
+            nav ul { flex-direction: column; align-items: center; }
+        }
 
-  #toggle-slideshow{
-    background-color:rgb(44, 42, 42);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    font-family:"Lucida Sans";
-    font-size: 20px;
-    border-radius: 10px;
-    position:absolute;
-    left:39em;
-    bottom:-23em;
-    transition-duration: 0.4s;
-
-  }
-  #toggle-slideshow:hover{
-    background-color: rgb(0, 139, 58);
-  }
-
-  .MYB3:hover{
-    background-color: rgb(0, 139, 58);
-  }
-
-  #area{
-    width:10em;
-    background-color: rgba(22, 105, 50, 0.301);
-    padding : 2em;
-    position: relative ;
-    transform:translate(110%,35%) ;
-    color:rgb(236, 198, 151) ;
-    font-family: 'Gill Sans MT';
-    font-size: larger;
-    position:absolute;
-    left:30em;
-    top: 8em;
-
-  }
-  div.desc{
-    width:10em;
-    background-color: rgba(22, 105, 50, 0.301);
-    padding : 2em;
-    position: relative ;
-    transform:translate(110%,35%) ;
-    color:rgb(236, 198, 151) ;
-    font-family: 'Gill Sans MT';
-    font-size: larger;
-    position:absolute;
-    left:-10em;
-    top:9em;
-
-  }
-  #me{
-
-    position:absolute;
-    left:17em;
-    top:12em;
-    max-width:28em;
-    padding:50px;
-    background-color: rgb(12, 11, 11);
-    }
-    #gif{
-    max-width:25em;
-    height:auto;
-    position:absolute;
-    left:-1em;
-    top:81em;
-
-  }
-  #arrow{
-    max-width:7em;
-    height:auto;
-    position:absolute;
-    left:27em;
-    top:88em;
-  }
-
-  label[for="name"] {
-  color: rgb(118, 118, 242);
-  position:absolute;
-  left:5em;
-  top:3.5em;
-  font-size: 20px;
-}
-label[for="email"] {
-  color: rgb(118, 118, 242);
-  position:absolute;
-  left:19em;
-  top:3.5em;
-  font-size: 20px;
-}
-label[for="message"] {
-  color: rgb(118, 118, 242);
-  position:absolute;
-  left:15em;
-  top:7em;
-  font-size: 20px;
-}
-#message{
-  position:absolute;
-  left:19em;
-  top:13em;
-  background-color: rgb(42, 38, 38);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 13px;
-  cursor: pointer;
-  font-family:"Lucida Sans";
-  border-radius: 10px;
-  color:bisque;
-  block-size: 7em;
-}
-#submit{
-  position:absolute;
-  left:16em;
-  top:15em;
-  background-color: rgb(42, 38, 38);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  font-family:"Lucida Sans";
-  font-size: 20px;
-  border-radius: 10px;
-  color:bisque;
-  transition-duration: 0.4s;
-}
-#submit:hover{
-  background-color: rgb(0, 139, 58);
-}
-input[type = "text"]{
-  position:absolute;
-  left:12em;
-  top:5em;
-  background-color: rgb(42, 38, 38);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  font-family:"Lucida Sans";
-  font-size: 13px;
-  border-radius: 10px;
-  color:bisque;
-}
-#email{
-  position:absolute;
-  left:35em;
-  top:5em;
-  background-color: rgb(42, 38, 38);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  font-family:"Lucida Sans";
-  font-size:13px;
-  border-radius: 10px;
-  color:bisque;
-}
-textarea {
-  width: 19em;
-  height: 5em;
-}
-#form{
-  position: absolute;
-  left:19em;
-  top:77em;
-}
-#home{
-    background-color:rgb(44, 42, 42);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    font-family:"Lucida Sans";
-    font-size: 20px;
-    border-radius: 10px;
-    position:absolute;
-    left:40em;
-    bottom:-70.5em;
-    transition-duration: 0.4s;
-
-  }
-  #home:hover{
-  background-color: rgb(0, 139, 58);
-}
-
-.mySlide1{
-    position: absolute;
-    width:20em;
-    height:12em;
-    left:0em;
-    bottom:-43em;
-}
-.mySlide2{
-    position: absolute;
-    width:39em;
-    height:25em;
-    left:21em;
-    bottom:-56em;
-}
-.mySlide3{
-    position: absolute;
-    width:20em;
-    height:12em;
-    left:0em;
-    bottom:-56em;
-}
-
-
-
-
-
-
-
-
-
-</style>
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
 </head>
 <body>
-<div class = 'desc'>
-    Interested in working with me or finding out how I
-        can help you with your next project? </h7>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-       </div>
-<div id="header">
-  <h1>Data Analyst, Rachael Kibicho </h1>
-</div>
+    <section id="hero">
+        <div class="container">
+            <h1>Rachael Kibicho</h1>
+            <p>Music Producer | Software Engineer | Creative Multimedia Professional</p>
+            <a href="#about" class="btn">Explore My Work</a>
+        </div>
+    </section>
 
-<div class="topnav">
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <p>I'm a passionate creative based in Nairobi, Kenya, blending my IT background with music production, filmmaking, and audio technology. From composing tracks in Cakewalk to leading web development projects, I thrive at the intersection of tech and arts.</p>
+        <p>As a junior data analyst and software engineer, I've mentored at KamiLimu, hosted radio shows championing Kenyan music, and driven business growth in dynamic roles.[web:1][web:2][web:3]</p>
+    </section>
 
-  <a href="portfolio1.html"><b>ABOUT</b></a>
+    <section id="achievements" class="container">
+        <h2>Key Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <h3>Lead Web Developer at KaziQ</h3>
+                <p>Moved from concept to market, onboarding over 20 new businesses and positioning KaziQ for growth since December 2024.[web:2]</p>
+            </div>
+            <div class="achievement-card">
+                <h3>KamiLimu Mentor 2025</h3>
+                <p>Mentoring the next generation in tech and data analysis, empowering aspiring professionals in Kenya.[web:2]</p>
+            </div>
+            <div class="achievement-card">
+                <h3>Radio Host & #254 Movement Pioneer</h3>
+                <p>Championed Kenyan artists at Homeboyz Radio and Kiss 100, hosting shows like Jam Session and mid-morning slots with a decade in media.[web:3][web:6]</p>
+            </div>
+            <div class="achievement-card">
+                <h3>Business Growth Driver</h3>
+                <p>Grew asset base by 30%+ through client relationships, sales, and cross-selling in telecom and banking sectors.[web:8]</p>
+            </div>
+        </div>
+    </section>
 
+    <section id="skills" class="container">
+        <h2>Skills & Tools</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><strong>Music Production</strong><br>Cakewalk, Audio Engineering</div>
+            <div class="skill-item"><strong>Software Engineering</strong><br>JavaScript, Backend Dev</div>
+            <div class="skill-item"><strong>Data Analysis</strong><br>Junior Data Analyst</div>
+            <div class="skill-item"><strong>Media & Broadcasting</strong><br>Radio Hosting, Filmmaking</div>
+            <div class="skill-item"><strong>Web Development</strong><br>GitHub Pages, HTML/CSS/JS</div>
+            <div class="skill-item"><strong>Creative Tools</strong><br>Graphic Design, Content Creation</div>
+        </div>
+    </section>
 
-</div>
-<a class="MYB3" href="#form">CONNECT WITH ME</a>
-<img  id = "me" src="https://ik.imagekit.io/vdhj3qmal/me1.jpg?updatedAt=1680546130802" alt="A picture of me">
-<img  id = "gif" src="https://ik.imagekit.io/vdhj3qmal/spongebobGIF.gif?updatedAt=1680546132449" alt="Spongebob thinking" >
-<img  id = "arrow" src="https://ik.imagekit.io/vdhj3qmal/arrow.jpeg?updatedAt=1680546121712" alt="An arrow">
-<form id="form" action="https://getform.io/f/b1e98985-fbe0-4542-8e32-c0fb10495ff0"
-method = "post" enctype = "multipart/form-data">
-  <h2 style = "color: rgb(118, 118, 242);  ">Send me a message:</h2>
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" placeholder="Your First Name" required>
+    <section id="contact" class="container">
+        <h2>Get In Touch</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
+    <footer class="container">
+        <p>&copy; 2026 Rachael Kibicho. All rights reserved. | Nairobi, Kenya</p>
+    </footer>
 
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" placeholder="Your Email" required>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-  <label for="message">MESSAGE:</label>
-  <input id="message" name="message" rows = 4 placeholder="How can I help YOU?"required></input>
+        // Form submission handler (demo - logs to console)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! It has been sent. (Demo)');
+            this.reset();
+        });
 
-  <input id ="submit" type="submit" value="Submit">
-
-</form>
-<script type="text/javascript">
-    function tend() {
-      document.getElementById('resume').style.visibility='visible';
-    }
-    function tn() {
-      document.getElementById('resume').style.visibility='hidden';
-    }
-    document.getElementById("form").addEventListener("submit", function() {
-  // get all the inputs in the form
-  var inputs = document.getElementById("form").getElementsByTagName("input");
-
-  // loop through the inputs and clear their values
-  for (var i = 0; i < inputs.length; i++) {
-    inputs[i].value = "";
-  }
-});
-
-
-
-
-  </script>
-  <a id="on" href="#toggle-slideshow">SHOW FAVORITE QUOTES</a>
-  <a id="toggle-slideshow" href="#header">BACK</a>
-  <div class="slideshow-container">
-    <img src="https://ik.imagekit.io/vdhj3qmal/charlesQuote.jpeg?updatedAt=1680546120321it.io/vdhj3qmal/danDataQuote.jpg?updatedAt=1680546121622" class="mySlide2">
-    <img src="https://ik.imagekit.io/vdhj3qmal/hillaryQuote.jpeg?updatedAt=1680546121799" class="mySlide3">
-  </div>
-  <a id="home" href="#header">BACK</a>
-  <div id="area">Check out some of the great minds and the quotes that have inspired me to join in building the world of data.</div>
-  <script>
-    const button = document.getElementById("text");
-    const text = document.getElementById("area");
-    button.addEventListener("click", function() {
-      text.innerHTML = "Hello, World!";
-    });
-  </script>
+        // Parallax effect on scroll for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.getElementById('hero');
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
 </body>
 </html>
